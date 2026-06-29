@@ -1,0 +1,16 @@
+# Terraform state — never commit these
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+
+# Built Lambda ZIPs
+dist/
+
+# Your email addresses — keep private
+terraform.tfvars
+
+# OS
+.DS_Store
+Thumbs.db
