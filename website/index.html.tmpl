@@ -1079,7 +1079,7 @@ footer {
       const alpha = Math.max(0, Math.min(1, s.baseAlpha + twinkle));
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(241,240,255,${alpha})`;
+      ctx.fillStyle = `rgba(241,240,255,$${alpha})`;
       ctx.fill();
     }
     if (!prefersReducedMotion) requestAnimationFrame(draw);
