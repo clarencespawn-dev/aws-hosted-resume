@@ -382,7 +382,8 @@ h2.section-title {
 
 /* ─── PROJECTS ───────────────────────────────────────── */
 .project-grid {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 20px;
+  max-width: 760px;
 }
 .project-card {
   background: var(--white); border: 1px solid var(--faint);
@@ -441,6 +442,7 @@ h2.section-title {
   border: 1px solid rgba(59,91,219,.18);
 }
 .tag.here { color: var(--green); background: var(--green-bg); border-color: rgba(22,163,74,.2); }
+.tag.wip  { color: var(--amber); background: var(--amber-bg); border-color: rgba(224,146,0,.25); }
 
 @media (max-width: 900px) { .project-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 580px) { .project-grid { grid-template-columns: 1fr; } }
@@ -803,31 +805,19 @@ footer {
   <div class="reveal">
     <p class="eyebrow">Projects</p>
     <h2 class="section-title">Things I've built.</h2>
-    <p class="section-lead">Actually deployed side projects — not tutorial exercises. Each one was built to learn something specific about how production systems work.</p>
+    <p class="section-lead">Real side projects — not tutorial exercises. Each one built to learn something specific about how production systems work.</p>
   </div>
 
   <div class="project-grid">
     <div class="project-card reveal">
       <div class="project-top">
         <div class="project-emoji">🤖</div>
-        <a href="https://github.com/clarencespawn-dev/nz-tribunal-chatbot" target="_blank" rel="noopener" class="project-link-icon" aria-label="View on GitHub">↗</a>
+        <span class="project-link-icon" style="cursor:default" aria-label="In progress">🚧</span>
       </div>
       <h3 class="project-title">NZ Tenancy Law Chatbot</h3>
       <p class="project-desc">RAG-based chatbot for NZ tenancy law questions. Scrapy pipeline scrapes tribunal decisions and the Residential Tenancies Act, embedded into ChromaDB, answered through the Gemini API behind FastAPI.</p>
       <div class="tag-row">
-        <span class="tag">Scrapy</span><span class="tag">ChromaDB</span><span class="tag">Gemini API</span><span class="tag">FastAPI</span>
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-top">
-        <div class="project-emoji">⚡</div>
-        <a href="https://github.com/clarencespawn-dev" target="_blank" rel="noopener" class="project-link-icon" aria-label="View on GitHub">↗</a>
-      </div>
-      <h3 class="project-title">Serverless Portfolio API</h3>
-      <p class="project-desc">Production-style serverless backend built to understand the API Gateway → Lambda → DynamoDB pattern that underpins most AWS-hosted APIs.</p>
-      <div class="tag-row">
-        <span class="tag">API Gateway</span><span class="tag">Lambda</span><span class="tag">DynamoDB</span><span class="tag">Node.js</span>
+        <span class="tag">Scrapy</span><span class="tag">ChromaDB</span><span class="tag">Gemini API</span><span class="tag">FastAPI</span><span class="tag wip">In progress</span>
       </div>
     </div>
 
@@ -837,7 +827,7 @@ footer {
         <span class="project-link-icon" style="cursor:default">📍</span>
       </div>
       <h3 class="project-title">This Resume</h3>
-      <p class="project-desc">Fully serverless. S3 + CloudFront with OAC, Lambda Function URLs for the live visitor counter and contact form, DynamoDB for persistence, SES for email. Zero EC2. $0/month.</p>
+      <p class="project-desc">Fully serverless. S3 + CloudFront with OAC, API Gateway + Lambda for the live visitor counter and contact form, DynamoDB for persistence, SES for email. Zero EC2. $0/month.</p>
       <div class="tag-row">
         <span class="tag">S3 + CloudFront</span><span class="tag">Lambda</span><span class="tag">DynamoDB</span><span class="tag here">You're here</span>
       </div>
