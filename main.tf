@@ -63,7 +63,13 @@ resource "aws_budgets_budget" "monthly_cost_alert" {
   limit_amount = "1.00"
   limit_unit   = "USD"
   time_unit    = "MONTHLY"
-  time_period_start = formatdate("YYYY-MM-01_00:00", timestamp())
+  # No time_period_start set deliberately: using formatdate(timestamp())
+  # recalculates on every apply and creates a permanent spurious diff.
+  # Omitting it lets AWS default to the current date once, at creation.
+
+  lifecycle {
+    ignore_changes = [time_period_start]
+  }
 
   notification {
     comparison_operator       = "GREATER_THAN"
@@ -166,13 +172,13 @@ resource "aws_iam_role_policy" "contact_form_ses" {
 # ── Zip the source files ────────────────────────────────────────────────────
 data "archive_file" "visitor_counter" {
   type        = "zip"
-  source_file = "${path.module}/lambda_src/lambda_visitor_counter.py"
+  source_file = "${path.module}/lambda_visitor_counter.py"
   output_path = "${path.module}/dist/visitor_counter.zip"
 }
 
 data "archive_file" "contact_form" {
   type        = "zip"
-  source_file = "${path.module}/lambda_src/lambda_contact_form.py"
+  source_file = "${path.module}/lambda_contact_form.py"
   output_path = "${path.module}/dist/contact_form.zip"
 }
 
