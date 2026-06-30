@@ -271,16 +271,17 @@ section { padding: 104px 0 0; }
 
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--ink); color: #fff;
-  font-family: var(--display); font-weight: 600; font-size: 14.5px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+  color: #0A0B16;
+  font-family: var(--display); font-weight: 700; font-size: 14.5px;
   padding: 13px 26px; border-radius: 100px;
-  transition: background .2s, transform .25s var(--spring), box-shadow .2s;
+  transition: filter .2s, transform .25s var(--spring), box-shadow .2s;
   text-decoration: none;
 }
 .btn-primary:hover {
-  background: var(--blue); color: #fff; text-decoration: none;
+  filter: brightness(1.12); color: #0A0B16; text-decoration: none;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(157,124,255,.32);
+  box-shadow: 0 8px 26px rgba(157,124,255,.4);
 }
 .btn-secondary {
   display: inline-flex; align-items: center; gap: 8px;
@@ -615,15 +616,16 @@ textarea { resize: vertical; min-height: 120px; }
 
 .btn-send {
   width: 100%; padding: 14px 24px;
-  background: var(--ink); color: #fff; border: none;
+  background: linear-gradient(135deg, var(--blue), var(--blue-mid));
+  color: #0A0B16; border: none;
   border-radius: var(--r-sm);
-  font-family: var(--display); font-size: 15px; font-weight: 600;
+  font-family: var(--display); font-size: 15px; font-weight: 700;
   cursor: pointer; letter-spacing: -.01em;
-  transition: background .2s, transform .25s var(--spring), box-shadow .2s;
+  transition: filter .2s, transform .25s var(--spring), box-shadow .2s;
 }
 .btn-send:hover {
-  background: var(--blue); transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(157,124,255,.35);
+  filter: brightness(1.12); transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(157,124,255,.4);
 }
 .btn-send:active { transform: translateY(0); box-shadow: none; }
 .btn-send:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
